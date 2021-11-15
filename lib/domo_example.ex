@@ -16,7 +16,7 @@ defmodule DomoExample do
       end
 
       def create(data) do
-        DomoExample.new_ok(%{meta: data})
+        DomoExample.new(%{meta: data})
       end
     end
   end

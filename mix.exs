@@ -8,6 +8,7 @@ defmodule DomoExample.MixProject do
       elixir: "~> 1.12",
       compilers: Mix.compilers() ++ [:domo_compiler],
       start_permanent: Mix.env() == :prod,
+      elixirc_paths: elixirc_paths(Mix.env()),
       deps: deps()
     ]
   end
@@ -23,7 +24,10 @@ defmodule DomoExample.MixProject do
   defp deps do
     [
       {:typed_struct, "~> 0.2.1"},
-      {:domo, "~> 1.3.4"}
+      {:domo, "~> 1.4.0"}
     ]
   end
+
+  defp elixirc_paths(:test), do: ["lib", "test/support"]
+  defp elixirc_paths(_), do: ["lib"]
 end
